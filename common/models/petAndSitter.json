@@ -1,0 +1,35 @@
+{
+    "name": "petAndSitter",
+    "plural": "petsandsitters",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+        "id": {
+            "type": "number",
+            "required": true
+        },
+        "petId": {
+            "type": "number",
+            "required": true
+        },
+        "petSitterId": {
+            "type": "number",
+            "required": true
+        }
+    },
+    "validations": [],
+    "relations": {
+        "petsType": {
+            "type": "belongsTo",
+            "model": "petsType",
+            "foreignKey": "petId"
+        },
+        "petSitter": {
+            "type": "belongsTo",
+            "model": "petSitter",
+            "foreignKey": "petSitterId"
+        }
+    },
+    "acls": [],
+    "methods":{}
+}

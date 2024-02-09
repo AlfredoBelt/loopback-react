@@ -9,6 +9,7 @@
   "scripts": {
     "pretest": "jshint .",
     "start": "node .",
+    "dev": "nodemon /server/server.js",
     "test": "mocha -R spec test"
   },
   "dependencies": {
@@ -19,6 +20,8 @@
     "loopback": "^3.0.0",
     "loopback-boot": "^2.12.1",
     "loopback-component-explorer": "^5.1.0",
+    "loopback-connector-mongodb": "^7.0.0-alpha.1",
+    "loopback-connector-mysql": "^7.0.6",
     "loopback-connector-rest": "^3.0.0",
     "serve-favicon": "^2.4.4",
     "serve-static": "^1.10.0",
@@ -27,6 +30,7 @@
   "devDependencies": {
     "jshint": "^2.5.6",
     "mocha": "^3.5.3",
+    "nodemon": "^3.0.3",
     "supertest": "^3.0.0"
   },
   "repository": {

@@ -7,63 +7,34 @@
       "./models"
     ]
   },
-  "User": {
-    "dataSource": "db"
-  },
-  "AccessToken": {
-    "dataSource": "db",
-    "public": false
-  },
-  "ACL": {
-    "dataSource": "db",
-    "public": false
-  },
-  "RoleMapping": {
-    "dataSource": "db",
-    "public": false
-  },
-  "Role": {
-    "dataSource": "db",
-    "public": false
-  },
-  "Customer": {
+  "user": {
     "dataSource": "db",
     "public": true
   },
-  "Address": {
-    "dataSource": "transient",
-    "public": false
-  },
-  "EmailAddress": {
-    "dataSource": "transient",
-    "public": false
-  },
-  "Account": {
-    "dataSource": "db",
-    "public": false
-  },
-  "Author": {
-    "dataSource": "db",
-    "public": false
-  },
-  "Reader": {
-    "dataSource": "db",
-    "public": false
-  },
-  "Book": {
+  "city": {
     "dataSource": "db",
     "public": true
   },
-  "Link": {
-    "dataSource": "transient",
-    "public": false
-  },
-  "Order": {
+  "petsType": {
     "dataSource": "db",
     "public": true
   },
-  "Shipment": {
+  "state": {
+    "dataSource": "db",
+    "public": true
+  },
+  "petSitter": {
+    "dataSource": "db",
+    "public": true
+  },
+  "reviews": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "petAndSitter": {
     "dataSource": "db",
     "public": true
   }
+
+
 }

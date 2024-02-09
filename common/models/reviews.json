@@ -1,0 +1,27 @@
+{
+    "name": "reviews",
+    "plural": "reviews",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+        "petSitterId": {
+            "type": "number",
+            "required": true
+        },
+        "ratting": {
+            "type": "number",
+            "required": true
+        },
+        "comments": {
+            "type": "string",
+            "required": true
+        }
+        
+    },
+    "validations": [],
+    "relations": {
+      
+    },
+    "acls": [],
+    "methods": {}
+}

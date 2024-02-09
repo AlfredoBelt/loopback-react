@@ -1,10 +1,22 @@
 {
   "db": {
+    "host": "localhost",
+    "port": 3306,
+    "database": "petsitter",
     "name": "db",
-    "connector": "memory"
+    "password": "programa85",
+    "user": "root",
+    "connector": "mysql"
   },
-  "transient": {
-    "name": "transient",
-    "connector": "transient"
+  "mongodb": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "petsitters",
+    "name": "mongodb",
+    "url": "",
+    "user": "",
+    "password": "",
+    "connector": "mongodb"
   }
+  
 }

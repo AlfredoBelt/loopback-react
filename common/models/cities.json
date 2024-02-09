@@ -1,0 +1,30 @@
+{
+    "name": "city",
+    "plural": "cities",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+        "id": {
+            "type": "number",
+            "required": true
+        },
+        "idState": {
+            "type": "number",
+            "required": true
+        },
+        "nombre": {
+            "type": "string",
+            "required": true
+        }
+    },
+    "validations": [],
+    "relations": {
+        "state": {
+            "type": "belongsTo",
+            "model": "state",
+            "foreignKey": "idState"
+        }
+    },
+    "acls": [],
+    "methods": {}
+}

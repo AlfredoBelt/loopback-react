@@ -1,0 +1,43 @@
+{
+    "name": "user",
+    "plural": "users",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+        "id":{
+          "type": "number",
+          "required": true  
+        },
+      "nombre": {
+        "type": "string",
+        "required": true
+      },
+      "apellido":{
+        "type": "string",
+        "required": true
+      },
+      "direccion":{
+        "type": "string",
+        "required": true
+      },
+      "correo":{
+        "type": "string",
+        "required": true
+      },
+      "telefono":{
+        "type": "number",
+        "required": true
+      },
+      "contraseña":{
+        "type": "string",
+        "required": true
+      }
+    },
+    "validations": [],
+    "relations": {
+      
+    },
+    "acls": [],
+    "methods": {}
+  }
+  

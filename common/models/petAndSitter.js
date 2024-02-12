@@ -1,3 +1,5 @@
+const utils = require("./util/util")
+
 module.exports = (PetAndSitter) => {
     PetAndSitter.getFilteredPets = async(req, res) => {
         try {
@@ -11,9 +13,26 @@ module.exports = (PetAndSitter) => {
                     relation: "petsType"
                 }
             })
-            res.status(200).json({message: "operacion exitosa", data: petSitterWithPets})
+            const parsedPetsitter = utils.cloneJson(petSitterWithPets)
+            const newObject = {
+                id: petSitterId,
+                pets: []
+            }
+            for(x = 0; x <= parsedPetsitter.length; x++){
+                let petSitter = parsedPetsitter[x]
+    
+                if(newObject.id == petSitter?.petSitterId){
+                    newObject.pets.push(petSitter["petsType"])
+                    newObject.petId = petSitter.petId
+                    newObject.petSitterId = petSitter.petSitterId
+                }
+            }
+       
+
+            res.status(200).json({message: "operacion exitosa", data: newObject})
         } catch (error) {
             res.status(400).json({message: error.message})
+            console.log(error)
         }
     }
 

@@ -1,7 +1,11 @@
 module.exports = (PetSitter) => {
     PetSitter.getPetsitter = async(req, res) => {
         try {
-          const data = await PetSitter.find()
+            const { id } = req.query
+          const data = await PetSitter.find({ 
+            where: {id},
+            include: ["city", "petsType"]
+        })
           if(!data) throw new Error("registros no encontrados")
           
           res.status(200).json({message: "operacion exitosa", data: data})
@@ -9,18 +13,22 @@ module.exports = (PetSitter) => {
             res.status(404).json({message: error.message})
         }
     }
+
     PetSitter.getOnePetSitter = async (req, res) => {
         try {
             const { id } = req.query
             if (!id) throw new Error("Hacen falta datos para continuar")
-            const data = await PetSitter.findOne({
-                where: { id },
+
+            const data = await PetSitter.find({
                 include: {
                     relation: 'city',
                     scope: {
                         include: {
                             relation: 'state',
-                        }
+                            scope: {
+                                where: { id }
+                            }
+                        },
                     }
                 }
             })
@@ -41,7 +49,7 @@ module.exports = (PetSitter) => {
         try{
             const data = req.body
             const petSitter = await PetSitter.create(data)
-            res.status(202).json({message: "Creado con exito", data: data})
+            res.status(202).json({message: "Creado con exito", data: petSitter})
         } catch (error) {
             res.send({message: error.message})
         }
@@ -63,7 +71,7 @@ module.exports = (PetSitter) => {
                 fotoUrl: data.fotoUrl,
                 edad: data.edad
             })
-            res.status(200).json({message: "petsitter actualizado", data: data})
+            res.status(200).json({message: "petsitter actualizado", data: petsitter})
         } catch (error) {
             res.send({message: error.message})
         }
@@ -99,7 +107,7 @@ module.exports = (PetSitter) => {
     PetSitter.remoteMethod('getOnePetSitter', {
         description: 'Obtener datos del PetSitter',
         http: {
-            path: '/sitters',
+            path: '/sitter',
             verb: 'GET'
         },
         accepts: [

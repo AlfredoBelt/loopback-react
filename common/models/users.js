@@ -40,6 +40,7 @@ module.exports = (User) => {
     try{
       // TODO: Validar campos desde cliente
       const {correo, contraseña} = req.body
+      console.log(correo, contraseña)
       if(!correo || !contraseña) {
         throw new Error("datos faltantes")
       }
@@ -47,7 +48,9 @@ module.exports = (User) => {
       // ejemplo de operador AND
     //   const user = await User.findOne({ where: {and: [ {correo}, {contraseña} ] } })
     const user = await User.findOne({where: {correo}})
-
+      console.log(user)
+      if(!user) throw new Error("usuario no encontrado")
+      
         if(correo != user.correo || contraseña != user.contraseña){
             throw new Error("credenciales incorrectas")
         }
@@ -66,7 +69,7 @@ module.exports = (User) => {
     description: 'validar login',
     http: {
       path: '/login',
-      verb: 'GET'
+      verb: 'POST'
     },
     accepts: [
       { arg: 'req', type: 'object', http: ctx => { return ctx.req } },

@@ -124,7 +124,7 @@ module.exports = (PetSitter) => {
     PetSitter.remoteMethod("createPetsitter", {
         description: "Crear un nuevo Petsitter",
         http: {
-            path: "/sitters",
+            path: "/create",
             verb: "POST"
         },
         accepts: [
@@ -140,7 +140,7 @@ module.exports = (PetSitter) => {
 
     PetSitter.remoteMethod('updatePetsitter', {
       http: {
-        path: '/sitters',
+        path: '/update',
         verb: 'PUT'
       },
       accepts: [
@@ -152,7 +152,7 @@ module.exports = (PetSitter) => {
 
     PetSitter.remoteMethod('deletePetsitter', {
       http: {
-        path: '/sitters',
+        path: '/delete',
         verb: 'DELETE'
       },
       accepts: [

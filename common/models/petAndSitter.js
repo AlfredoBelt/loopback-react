@@ -42,7 +42,7 @@ module.exports = (PetAndSitter) => {
             if(!data) throw new Error("datos faltantes")
 
             const relation = await PetAndSitter.create(data)
-            res.status(200).json({messsage: "relacion creada", data: data})
+            res.status(200).json({messsage: "relacion creada", data: relation})
         } catch (error) {
             res.status(400).json({message: error.message})
         }
@@ -75,7 +75,7 @@ module.exports = (PetAndSitter) => {
     PetAndSitter.remoteMethod("createRelation", {
         description: "Crear la relacion de los petsType y los petsSitter",
         http: {
-            path: "/relations",
+            path: "/create",
             verb: "POST"
         },
         accepts: [
@@ -91,7 +91,7 @@ module.exports = (PetAndSitter) => {
 
     PetAndSitter.remoteMethod('deleteRelation', {
       http: {
-        path: '/relations',
+        path: '/delete',
         verb: 'DELETE'
       },
       accepts: [

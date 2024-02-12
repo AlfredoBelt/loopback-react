@@ -22,7 +22,7 @@ module.exports = (Review) => {
             if(!data) throw new Error("datos faltantes")
 
             const review = Review.create(data)
-            res.status(202).json({message: "operacion exitosa", data: data})
+            res.status(202).json({message: "operacion exitosa", data: review})
         } catch (error) {
             res.status(400).json({message: error.message})
         }
@@ -47,7 +47,7 @@ module.exports = (Review) => {
 
     Review.remoteMethod('createReview', {
       http: {
-        path: '/reviews',
+        path: '/create',
         verb: 'POST'
       },
       accepts: [

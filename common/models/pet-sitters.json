@@ -43,12 +43,6 @@
             "type": "belongsTo",
             "model": "city",
             "foreignKey": "cityId"
-        },
-        "petsType": {
-            "type": "belongsTo",
-            "model": "petAndSitter",
-            "foreignKey": "petSitterId",
-            "primaryKey": "id"
         }
     },
     "acls": [],

@@ -7,7 +7,7 @@ module.exports = (Review) => {
 
             const review = await Review.find({ where: { petSitterId:id }})
             console.log(id)
-            if(!review) throw new Error("registros no encontrados")
+            if(review.length <= 0) throw new Error("registros no encontrados")
 
             res.status(200).json({message: "operacion exitosa", data:review})
         }catch(error){

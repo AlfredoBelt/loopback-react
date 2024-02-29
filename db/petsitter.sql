@@ -6,7 +6,7 @@ CREATE TABLE user(
     apellido VARCHAR(60) NOT NULL,
     direccion VARCHAR(255) NOT NULL,
     correo VARCHAR(255) NOT NULL,
-    telefono INT NOT NULL,
+    telefono VARCHAR(20) NOT NULL,
     contraseña VARCHAR(20) NOT NULL
 );
 
@@ -37,8 +37,8 @@ CREATE TABLE petSitter(
     nombre VARCHAR(60) NOT NULL,
     apellido VARCHAR(60) NOT NULL,
     correo VARCHAR(60) NOT NULL,
-    telefono INT NOT NULL,
-    fotoUrl VARCHAR(60) NOT NULL,
+    telefono VARCHAR(20) NOT NULL,
+    fotoUrl VARCHAR(255) NOT NULL,
     edad INT NOT NULL,
     FOREIGN KEY(cityId) REFERENCES city(id)
 );
